@@ -9,8 +9,17 @@ let numero;
 // sorteia os números
 for(let i = 0; i < quantidade; i++) {
     numero = obterNumeroAleatorio(de, ate);
+    // garante que o número não seja repedito
+    while (sorteados.includes(numero)) {
+        numero = obterNumeroAleatorio(de, ate);
+    }
+    
     sorteados.push(numero);
 }
+// Exibir os números sorteados na página
+let resultado = document.getElementById('resultado');
+resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${sorteados}</label>`;
+
 
 alert(sorteados);
 }
